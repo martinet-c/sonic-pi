@@ -50,7 +50,7 @@ in_thread do
   end
 end
 
-keys = [[:B4, :C5, :D5, :C5, :B4], [:B4, :C5, :D5, :E5, :B4], [:B4, :C5, :D5, :C5, :B4], [:B4, :C5, :A4, :G4, :G4]]
+keys = [[:B4, :C5, :D5, :C5, :B4], [:B4, :C5, :D5, :E5, :B4], [:B4, :C5, :D5, :C5, :D5], [:B4, :C5, :A4, :G4, :G4]]
 use_synth :hollow
 i = 0
 loop do
