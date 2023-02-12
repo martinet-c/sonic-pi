@@ -12,7 +12,7 @@ define :increment_local_i_and_print do |flag|
   print "#{flag}: Thread.current[:local_i] == #{Thread.current[:local_i]}"
 end
 
-# Thread.current[:local_i2] will be initialized later (line 67)
+# Thread.current[:local_i2] will be initialized later (line 69)
 
 define :increment_local_i2_and_print do |flag|
   Thread.current[:local_i2] += 1
@@ -59,7 +59,9 @@ end
 sleep 1
 increment_i_and_print 'flag1'
 increment_j_and_print 'flag1'
+print "flag 1 special: j == #{j}"
 increment_k_and_print 'flag1'
+print "flag 1 special: k == #{k}" # this line will generate an error, comment it and try again
 
 # Thread.current[:local_i] already initialized (line 8)
 increment_local_i_and_print 'flag1'
