@@ -1,5 +1,4 @@
 My understanding after these tests:
-
 * You can't access directly to variables declared in another thread (except for [inheritance](https://sonic-pi.net/tutorial.html#section-5-4)).
 * But you can access to methods declared in another thread, and these methods can access to variables declared in the same thread.
   * /!\ So you can indirectly access and modify variables declared in another thread throught methods calls!! /!\
