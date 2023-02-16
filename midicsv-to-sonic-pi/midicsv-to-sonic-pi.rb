@@ -10,13 +10,13 @@ file_in = 'sonic-pi/file-in.csv'
 File.foreach(file_in) { |str_line|
   cur_line = str_line.strip.split(', ')
   cur_track = cur_line[0].to_i
-  cur_time = cur_line[1].to_i / 1024 #time in MIDI clocks converted to beat time
+  cur_time = cur_line[1].to_f / 1024 #time in MIDI clocks converted to beat time
   if track == cur_track
     
     case
     when track == 1
       if cur_line[2] == 'Tempo'
-        bpm = 60000000 / cur_line[3].strip.to_i
+        bpm = cur_line[3].strip.to_i * 120 / 500000
       end
       
     when track > 1
