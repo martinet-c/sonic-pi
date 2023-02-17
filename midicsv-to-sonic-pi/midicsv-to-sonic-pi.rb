@@ -1,10 +1,10 @@
 # For file_in and file_out you can use relative or absulte paths.
-# If you use a relative path, on Windows Sonic Pi will look in your Desktop directory.
+# If you use relative paths, on Windows Sonic Pi will look in your Desktop directory.
 file_in = 'sonic-pi/file-in.csv'
 file_out = 'sonic-pi/file-out.rb'
 
-# If you prefer instructions like "play 60" set notes_as_letters to false.
-# If you prefer instructions like "play :C4" set notes_as_letters to true.
+# If you prefer instructions like "play 60", set notes_as_letters to false.
+# If you prefer instructions like "play :C4", set notes_as_letters to true.
 notes_as_letters = true
 
 default_synth = ':piano'
@@ -18,7 +18,7 @@ events = []
 File.foreach(file_in) { |str_line|
   cur_line = str_line.strip.split(', ')
   cur_track = cur_line[0].to_i
-  cur_time = cur_line[1].to_f / 1024 #time in MIDI clocks converted to beat time
+  cur_time = cur_line[1].to_f / 1024 # time in MIDI clocks converted to beat time
   if track == cur_track
     if track == 1
       if cur_line[2] == 'Tempo'
@@ -65,7 +65,7 @@ events.each do |track|
     writeln('in_thread do')
     writeln("  use_synth #{default_synth}")
     track.each do |event|
-      event[1] = event[0] == 'play' && notes_as_letters ? number_to_letter(event[1]) : event[1]
+      event[1] = event[0]=='play' && notes_as_letters ? number_to_letter(event[1]) : event[1]
       release = event[2]!=nil ? ", release: #{event[2]}" : ''
       writeln("  #{event[0]} #{event[1]}#{release}")
     end
