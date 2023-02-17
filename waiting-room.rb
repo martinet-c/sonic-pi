@@ -26,7 +26,7 @@ end
 
 in_thread do
   notes = [[:B4, :G5, :D5,  :B4, :C5], [:B4, :G5,  :D5, :B4, :C5], [:B4, :G5, :D5, :B4, :C5], [:B4, :G5, :D5, :B4, :C5],
-          [:C5, :A5, :Gb5, :C5, :D5], [:A4, :Gb5, :A4, :B4, :C5], [:B4, :G5, :D5, :B4, :C5], [:B4, :G5, :D5, :B4, :C5]]
+           [:C5, :A5, :Gb5, :C5, :D5], [:A4, :Gb5, :A4, :B4, :C5], [:B4, :G5, :D5, :B4, :C5], [:B4, :G5, :D5, :B4, :C5]]
   use_synth :kalimba
   i = 0
   sleep 1
