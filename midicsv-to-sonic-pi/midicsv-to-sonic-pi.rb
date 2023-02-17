@@ -1,12 +1,17 @@
+# For file_in and file_out you can use relative or absulte paths.
+# If you use a relative path, on Windows Sonic Pi will look in your Desktop directory.
+file_in = 'sonic-pi/file-in.csv'
+file_out = 'sonic-pi/file-out.rb'
+
 default_synth = ':piano'
 default_bpm = 120
+
 bpm = default_bpm
 track = 0
 time = 0
 keys_time = []
 events = []
 
-file_in = 'sonic-pi/file-in.csv'
 File.foreach(file_in) { |str_line|
   cur_line = str_line.strip.split(', ')
   cur_track = cur_line[0].to_i
@@ -16,7 +21,7 @@ File.foreach(file_in) { |str_line|
     case
     when track == 1
       if cur_line[2] == 'Tempo'
-        bpm = cur_line[3].strip.to_i * 120 / 500000
+        bpm = 60000000 / cur_line[3].strip.to_i
       end
       
     when track > 1
@@ -49,7 +54,6 @@ File.foreach(file_in) { |str_line|
   end
 }
 
-file_out = 'sonic-pi/file-out.rb'
 define :writeln do |line|
   File.write(file_out, "#{line}\n", mode: 'a')
 end
